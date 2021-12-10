@@ -1,0 +1,24 @@
+{
+    "data": [
+        {
+            "nama": "niko",
+            "umur": "18",
+            "angkatan": "2021"
+        },
+        {
+            "nama": "niko",
+            "umur": "18",
+            "angkatan": "2019"
+        },
+        {
+            "nama": "niko",
+            "umur": "18",
+            "angkatan": "2018"
+        },
+        {
+            "nama": "bujang",
+            "umur": "50",
+            "angkatan": "2017"
+        }
+    ]
+}
