@@ -8,38 +8,38 @@ def lihatdata():
       data = json.load(file)
       print('''
          
-                                        Data Mahasiswa Universitas Jember                             
-        +_____________________________________________________________________________________________+''')
+                             Data Mahasiswa Prodi Sistem Informasi Universitas Jember                             
+        +____________________________________________________________________________________________________________________+''')
       print('')    
       indeks=0
       for user in data['data']:
         indeks += 1
         print(indeks)
-        print('        |','NAME: >>>>[', user['nama'] ,'angkatan: ',user['angkatan'],'] - UMUR >>>>[', user['umur'],']')
-        print('''        |''''-------------------------------------------------------------------------') 
+        print('        |','NAMA: >>>>[', user['nama'] ,'] - NIM: [',user['nim'],'] - Tempat tanggal lahir: >>>>[', user['ttl'],'] - Asal: >>>>[',user['asal'],']')
+        print('''        |''''-----------------------------------------------------------------------------------------------------------------------') 
         print('')
 
   except:
-    print('Data anda belum ada! silahkan buat data baru terlebih dahulu')
+    print('\nData anda belum ada! silahkan buat data baru terlebih dahulu\n')
     buatData()
 
 def buatData():
   data = {}
   data['data'] = [
-    {'nama': input('masukkan nama anda: '), 'umur': input('masukkan umur anda: '), 'angkatan': input('masukkan angkatan berapa: ')}
+    {"nama":input('Masukkan nama lengkap anda: '),"nim":input('Masukkan NIM anda: '), "ttl": input('Masukkan Tempat tanggal lahir anda: '), 'asal': input('Masukkan asal daerah anda: ')}
   ]
   with open('note.json','a') as filebaru:
-    json.dump(data,filebaru,indent=4)
+    json.dump(data,filebaru,indent=5)
 
 def tambah_data(data, filename='note.json'):
   with open(filename, 'w') as p:
-    json.dump(data, p, indent=4)
+    json.dump(data, p, indent=5)
 
 def tambahData():
   with open ('note.json') as file_json:
     data=json.load(file_json)
     change=data['data']
-    a={"nama":input('masukkan nama anda: '),"umur":input('masukkan umur lo: '), "angkatan": input('masukkan angkatan: ')}
+    a= {"nama":input('Masukkan nama lengkap anda: '),"nim":input('Masukkan NIM anda: '), "ttl": input('Masukkan Tempat tanggal lahir anda: '), 'asal': input('Masukkan asal daerah anda: ')}
     change.append(a)
     tambah_data(data)
 

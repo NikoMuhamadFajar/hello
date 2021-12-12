@@ -1,9 +1,22 @@
 {
-    "data": [
-        {
-            "nama": "jono",
-            "umur": "20",
-            "angkatan": "2019"
-        }
-    ]
+     "data": [
+          {
+               "nama": "niko ",
+               "nim": "29292733",
+               "ttl": "merauke84",
+               "asal": "merauke"
+          },
+          {
+               "nama": "bebe",
+               "nim": "32751925",
+               "ttl": "merauke397",
+               "asal": "binjai"
+          },
+          {
+               "nama": "ayam",
+               "nim": "212410101032",
+               "ttl": "merauke, 04 April 2003",
+               "asal": "Merauke"
+          }
+     ]
 }
