@@ -19,6 +19,11 @@
             "nama": "bujang",
             "umur": "50",
             "angkatan": "2017"
+        },
+        {
+            "nama": "katuk",
+            "umur": "30",
+            "angkatan": "2021"
         }
     ]
 }

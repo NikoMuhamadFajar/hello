@@ -25,7 +25,7 @@ def lihatdata():
 def tambah_data(data, filename='note.json'):
   with open(filename, 'w') as p:
     json.dump(data, p, indent=4)
-def update():
+def tambahData():
   with open ('note.json') as file_json:
     data=json.load(file_json)
     change=data['data']
@@ -49,9 +49,9 @@ def program():
     lihatdata()
 
   elif jawaban == "2" :
-    print('')
+    tambahData()
   elif jawaban == "3" :
-    update()
+    print('belum buat')
   else:
     program()
     
