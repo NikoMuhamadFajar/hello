@@ -19,12 +19,22 @@ def lihatdata():
         print('''        |''''-------------------------------------------------------------------------') 
         print('')
 
-  finally:
-    program()
+  except:
+    print('Data anda belum ada! silahkan buat data baru terlebih dahulu')
+    buatData()
+
+def buatData():
+  data = {}
+  data['data'] = [
+    {'nama': input('masukkan nama anda: '), 'umur': input('masukkan umur anda: '), 'angkatan': input('masukkan angkatan berapa: ')}
+  ]
+  with open('note.json','a') as filebaru:
+    json.dump(data,filebaru,indent=4)
 
 def tambah_data(data, filename='note.json'):
   with open(filename, 'w') as p:
     json.dump(data, p, indent=4)
+
 def tambahData():
   with open ('note.json') as file_json:
     data=json.load(file_json)
@@ -41,7 +51,8 @@ def program():
   
   [1] Lihat data
   [2] Tambah data
-  [3] Hapus data 
+  [3] Buat data baru
+  [4] Hapus data 
   ''')
 
   jawaban = input("silahkan pilih : ")
@@ -51,7 +62,7 @@ def program():
   elif jawaban == "2" :
     tambahData()
   elif jawaban == "3" :
-    print('belum buat')
+    buatData()
   else:
     program()
     
