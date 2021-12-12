@@ -19,8 +19,8 @@ def lihatdata():
         print('''        |''''-------------------------------------------------------------------------') 
         print('')
 
-  except:
-    print("broo") #buat_baru()
+  finally:
+    program()
 
 def tambah_data(data, filename='note.json'):
   with open(filename, 'w') as p:
