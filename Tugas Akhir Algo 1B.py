@@ -36,8 +36,7 @@ def lihatdata():
             indeks=0
             for user in data['data']:
                 indeks += 1
-                print(indeks)
-                print('        |','NAMA: >>>>[', user['nama'] ,'] - NIM: [',user['nim'],'] - Tempat tanggal lahir: >>>>[', user['ttl'],'] - Asal: >>>>[',user['asal'],']')
+                print('        |',indeks,'.  NAMA: >>>>[', user['nama'] ,'] - NIM: [',user['nim'],'] - Tempat tanggal lahir: >>>>[', user['ttl'],'] - Asal: >>>>[',user['asal'],']')
                 print('''        |''''-----------------------------------------------------------------------------------------------------------------------') 
                 print('')
             
@@ -51,6 +50,7 @@ def lihatdata():
                 program()
             elif pertanyaan == 't' :
                 tambahData()
+
 def simpanData(inp):
     data = {}
     data['data'] = inp
@@ -91,25 +91,46 @@ def tambahData():
             print('---------- Data anda telah berhasil disimpan ----------')
             program()
 
-    
+def view():
+    with open('note.json', 'r') as file:
+        data = json.load(file)
+        print('''
+            
+                             Data Mahasiswa Prodi Sistem Informasi Universitas Jember                             
++____________________________________________________________________________________________________________________+''')
+        print('')    
+        indeks=-1
+        for user in data['data']:
+            indeks += 1
+            print( indeks,'<Nama>:', user['nama'] ,'- <Nim>',user['nim'],'- <Tempat tanggal lahir>: ', user['ttl'],'- <Asal>: ',user['asal'])
+
 def hapus_Data():
-    
-    with open ('note.json', "r") as f:
-        new_data = []
-        data = json.load(f)
-        temp = data['data']      
-        data_length = len(temp)-1
-        print ("Data mana yang akan anda hapus?")
-        opsi_delete = input(f"pilih nomor 0-{data_length}: ")
-        i=0
-        for entry in temp:
-            if i == int(opsi_delete):
-                pass
-                i=i+1
-            else:    
-                new_data.append(entry)
-                i=i+1    
-    simpanData(new_data)      
+    view()    
+    try:
+        with open ('note.json', "r") as f:
+            new_data = []
+            data = json.load(f)
+            temp = data['data']      
+            data_length = len(temp)-1
+            print ("Data mana yang akan anda hapus?")
+            opsi_delete = input(f"pilih nomor 0-{data_length}: ")
+            i=0
+            for entry in temp:
+                if i == int(opsi_delete):
+                    pass
+                    i=i+1
+                else:    
+                    new_data.append(entry)
+                    i=i+1
+    finally:         
+        simpanData(new_data)
+        view()
+        print("data anda berhasil dihapus !!!")
+        jawaban = input('apakah ingin menghapus lagi? y untuk melanjutkan/ t untuk kembali ke program : ')
+        if jawaban == 'y':
+            hapus_Data()
+        else: 
+            program()      
     
 def clear_screen(): 
     os.system('cls' if os.name == 'nt' else 'clear')
